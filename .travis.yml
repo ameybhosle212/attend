@@ -14,7 +14,7 @@ deploy:
   region: "ap-south-1"
   app: "Server"
   env: "Server-env"
-  bucket_name: "elasticbeanstalk-ap-south-1-039264153064"
+  bucket_name: "elasticbeanstalk-ap-south-1:039264153064"
   bucket_path: "server"
   on:
     branch: master
