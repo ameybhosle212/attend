@@ -5,8 +5,8 @@ services:
 before_install :
   - docker build -t ameybhosle3/server -f Dockerfile.dev .
 
-# script:
-#   - docker run -e CI=true ameybhosle3/dock npm run test -- --coverage
+script:
+  - docker run -e CI=true ameybhosle3/dock npm start -- --coverage
 
 deploy:
   provider: elasticbeanstalk
