@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express();
+const { ApolloServer } = require('apollo-server-express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
@@ -16,8 +17,12 @@ mongoose.connect("mongodb://localhost:27017/polioce",{useUnifiedTopology:true,us
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-app.use(cookieParser())
-app.use(cors())
+app.use(cookieParser('secret'))
+app.use(cors({
+    origin: 'http://localhost:3000  ',
+    methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD'],
+    credentials: true
+}));
 app.use(session({
     store:Mongo.create({
         mongoUrl:"mongodb://localhost:27017/polioce"
@@ -31,6 +36,8 @@ app.use(session({
 }))
 
 app.use("/",require('./routes/route'))
+
+
 
 
 app.listen(2000,()=>{
