@@ -17,6 +17,10 @@ var upload = multer({ storage: storage })
 const Attendance = require('../models/attendance');
 const { VariablesAreInputTypesRule } = require('graphql');
 
+route.get("/",(req,res)=>{
+    return res.json({"DATA":"DATA"})
+})
+
 route.get("/getallUser" , isAuth , isSignedIN ,async (req,res)=>{
     const data = await User.find();
     var realData = [];
