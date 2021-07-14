@@ -39,8 +39,8 @@ app.use(session({
 app.use("/",require('./routes/route'))
 
 
+const port = process.env.port || 3000;
 
-
-app.listen(2000,()=>{
+app.listen(port,()=>{
     console.log("SEVER at 2000")
 })
