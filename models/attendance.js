@@ -1,7 +1,11 @@
 const mongoose = require('mongoose')
 
 const AttendanceSchema = new mongoose.Schema({
-    Date:{
+    From:{
+        type:Date,
+        required:true
+    },
+    To:{
         type:Date,
         required:true
     },
