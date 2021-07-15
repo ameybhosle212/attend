@@ -26,7 +26,7 @@ app.use(cors({
 }));
 app.use(session({
     store:Mongo.create({
-        mongoUrl:"mongodb://localhost:27017/polioce"
+        mongoUrl:"mongodb+srv://amey:amey@cluster0.rkdnt.mongodb.net/myAttend?retryWrites=true&w=majority"
     }),
     resave:false,
     saveUninitialized:false,
