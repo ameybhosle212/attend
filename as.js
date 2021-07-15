@@ -1,17 +1,21 @@
 const mongoose = require('mongoose')
-const data = require('../server/MOCK_DATA (2).json');
 const User = require('./models/user');
-
-mongoose.connect("mongodb://localhost:27017/polioce",{useUnifiedTopology:true,useNewUrlParser:true}).then(()=>{
+const jsonfile = require('jsonfile')
+mongoose.connect("mongodb+srv://amey:amey@cluster0.rkdnt.mongodb.net/myAttend?retryWrites=true&w=majority",{useUnifiedTopology:true,useNewUrlParser:true}).then(()=>{
     console.log("DB CONNECTED");
 })
+const data = require('./ass.json')
 
-data.map((val)=>{
-    const user = new User({
-        name:val.name,
-        DOB:val.DOB,
-        password:val.password
+function aki(){
+    data.map(async (val)=>{
+        const user = await User({
+            name:val.name,
+            password:val.password
+        })
+        user.save()
+        console.log(user);
     })
-    user.save();
-})
+}
 
+
+aki()

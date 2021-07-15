@@ -9,7 +9,7 @@ const Mongo = require('connect-mongo')
 
 // DataBase
 
-mongoose.connect("mongodb://localhost:27017/polioce",{useUnifiedTopology:true,useNewUrlParser:true}).then(()=>{
+mongoose.connect("mongodb+srv://amey:amey@cluster0.rkdnt.mongodb.net/myAttend?retryWrites=true&w=majority",{useUnifiedTopology:true,useNewUrlParser:true}).then(()=>{
     console.log("DB CONNECTED");
 })
 
